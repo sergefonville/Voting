@@ -24,7 +24,7 @@ if(
 		</style>
 	</head>
 	<body>
-		<form method="post" action="/Voting/VoteSubmit" enctype="multipart/form-data">
+		<form method="post" action="/Voting/Vote/Submit" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th>Title</th>

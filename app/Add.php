@@ -4,7 +4,7 @@
 		<title>Voting - Add Topic</title>
 	</head>
 	<body>
-		<form method="post" action="/Voting/AddSubmit" enctype="multipart/form-data">
+		<form method="post" action="/Voting/Add/Submit" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td><label for="Title">Title</label></td>

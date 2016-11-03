@@ -18,6 +18,11 @@
 <?php
 if(empty($_GET['TopicId'])) {
 	$Documents = $TopicCollection->find([], []);
+}
+else {
+	$TopicId = $_GET['TopicId'];
+	$Documents = $TopicCollection->find(['_id' => $TopicId]);	
+}
 ?>
 		<form>
 			<table>
@@ -63,7 +68,7 @@ if(empty($_GET['TopicId'])) {
 					<td><?php echo count($Document['Against']); ?></td>
 <?php
 		if(isset($_REQUEST['admin'])) {
-?>					<td><button name="TopicId" value="<?php echo $Document['_id']; ?>" type="submit" formaction="/Voting/DeleteSubmit?TopicId=<?php echo $Document['_id']; ?>">Delete</button></td>
+?>					<td><button name="TopicId" value="<?php echo $Document['_id']; ?>" type="submit" formaction="/Voting/Delete/Submit?TopicId=<?php echo $Document['_id']; ?>">Delete</button></td>
 <?php
 		}
 ?>
@@ -76,9 +81,4 @@ if(empty($_GET['TopicId'])) {
 	</body>
 </html>
 <?php
-}
-else {
-	$TopicId = $_GET['TopicId'];
-	$Documents = $TopicCollection->findOne(['' => $TopicId]);	
-}
 ?>
