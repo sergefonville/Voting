@@ -22,25 +22,51 @@ if(empty($_GET['TopicId'])) {
 		<form>
 			<table>
 				<tr>
-					<th>Guid</th>
-					<th>Title</th>
+<?php
+	if(isset($_REQUEST['admin'])) {
+?>					<th>Guid</th>
+<?php
+	}
+?>					<th>Title</th>
 					<th>Description</th>
-					<th>VoterIds</th>
-					<th>For</th>
+<?php
+	if(isset($_REQUEST['admin'])) {
+?>					<th>VoterIds</th>
+<?php
+	}
+?>					<th>For</th>
 					<th>Against</th>
-					<th>Delete</th>
+<?php
+	if(isset($_REQUEST['admin'])) {
+?>					<th>Delete</th>
+<?php
+	}
+?>	
 				</tr>
 <?php
 	foreach($Documents as $Document) {
 ?>
 				<tr>
-					<td><?php echo $Document['Guid']; ?></td>
-					<td><?php echo $Document['Title']; ?></td>
+<?php
+		if(isset($_REQUEST['admin'])) {
+?>					<td><nobr><?php echo $Document['Guid']; ?></nobr></td>
+<?php
+		}
+?>					<td><?php echo $Document['Title']; ?></td>
 					<td><?php echo $Document['Description']; ?></td>
-					<td><?php echo implode('<br/>', $Document['VoterIds']->bsonSerialize()); ?></td>
-					<td><?php echo count($Document['For']); ?></td>
+<?php
+		if(isset($_REQUEST['admin'])) {
+?>					<td><nobr><?php echo implode('<br/>', $Document['VoterIds']->bsonSerialize()); ?></nobr></td>
+<?php
+		}
+?>					<td><?php echo count($Document['For']); ?></td>
 					<td><?php echo count($Document['Against']); ?></td>
-					<td><button name="TopicId" value="<?php echo $Document['Guid']; ?>" type="submit" formaction="/Voting/DeleteSubmit?TopicId=<?php echo $Document['Guid']; ?>">Delete</button></td>
+<?php
+		if(isset($_REQUEST['admin'])) {
+?>					<td><button name="TopicId" value="<?php echo $Document['Guid']; ?>" type="submit" formaction="/Voting/DeleteSubmit?TopicId=<?php echo $Document['Guid']; ?>">Delete</button></td>
+<?php
+		}
+?>
 				</tr>
 <?php
 	}

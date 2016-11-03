@@ -20,8 +20,10 @@ if(
 	$Guid = newGuid();
 	$VoterIds = array();
 	foreach($Voters as $Voter) {
-		$VoterIds[] = newGuid();
+		$VoterId = newGuid();
+		$VoterIds[] = $VoterId
 	}
+	return;
 	$Result = $TopicCollection->insertOne(
 		[
 			'Guid' => $Guid
