@@ -24,7 +24,7 @@ if(empty($_GET['TopicId'])) {
 				<tr>
 <?php
 	if(isset($_REQUEST['admin'])) {
-?>					<th>Guid</th>
+?>					<th>_id</th>
 <?php
 	}
 ?>					<th>Title</th>
