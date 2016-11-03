@@ -21,12 +21,11 @@ if(
 	$VoterIds = array();
 	foreach($Voters as $Voter) {
 		$VoterId = newGuid();
-		$VoterIds[] = $VoterId
+		$VoterIds[] = $VoterId;
 	}
-	return;
 	$Result = $TopicCollection->insertOne(
 		[
-			'Guid' => $Guid
+			'_id' => $Guid
 		  , 'Title' => $Title
 		  , 'Description' => $Description
 		  , 'VoterIds' => $VoterIds

@@ -49,7 +49,7 @@ if(empty($_GET['TopicId'])) {
 				<tr>
 <?php
 		if(isset($_REQUEST['admin'])) {
-?>					<td><nobr><?php echo $Document['Guid']; ?></nobr></td>
+?>					<td><nobr><?php echo $Document['_id']; ?></nobr></td>
 <?php
 		}
 ?>					<td><?php echo $Document['Title']; ?></td>
@@ -63,7 +63,7 @@ if(empty($_GET['TopicId'])) {
 					<td><?php echo count($Document['Against']); ?></td>
 <?php
 		if(isset($_REQUEST['admin'])) {
-?>					<td><button name="TopicId" value="<?php echo $Document['Guid']; ?>" type="submit" formaction="/Voting/DeleteSubmit?TopicId=<?php echo $Document['Guid']; ?>">Delete</button></td>
+?>					<td><button name="TopicId" value="<?php echo $Document['_id']; ?>" type="submit" formaction="/Voting/DeleteSubmit?TopicId=<?php echo $Document['_id']; ?>">Delete</button></td>
 <?php
 		}
 ?>

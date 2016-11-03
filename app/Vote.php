@@ -3,7 +3,7 @@ if(
 	!empty($_REQUEST['TopicId'])
  && !empty($_REQUEST['VoterId'])
  ) {
-	 $Document = $TopicCollection->findOne(['Guid' => $_REQUEST['TopicId']]);
+	 $Document = $TopicCollection->findOne(['_id' => $_REQUEST['TopicId']]);
 ?>
 <!DOCTYPE html>
 <html>

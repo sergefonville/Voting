@@ -4,9 +4,9 @@ if(
  && !empty($_REQUEST['TopicId'])
  && !empty($_REQUEST['VoterId'])
 ) {
-	$VoterIds = $TopicCollection->findOne(['Guid' => $_REQUEST['TopicId']])['VoterIds']->bsonSerialize();
-	$ForVoterIds = $TopicCollection->findOne(['Guid' => $_REQUEST['TopicId']])['For']->bsonSerialize();
-	$AgainstVoterIds = $TopicCollection->findOne(['Guid' => $_REQUEST['TopicId']])['Against']->bsonSerialize();
+	$VoterIds = $TopicCollection->findOne(['_id' => $_REQUEST['TopicId']])['VoterIds']->bsonSerialize();
+	$ForVoterIds = $TopicCollection->findOne(['_id' => $_REQUEST['TopicId']])['For']->bsonSerialize();
+	$AgainstVoterIds = $TopicCollection->findOne(['_id' => $_REQUEST['TopicId']])['Against']->bsonSerialize();
 	$UpdatedForVoterIds = array();
 	$UpdatedAgainstVoterIds = array();
 	foreach($ForVoterIds as $ForVoterId)
@@ -20,7 +20,7 @@ if(
 	else
 		$UpdatedAgainstVoterIds[] = $_REQUEST['VoterId'];
 	$TopicCollection->UpdateOne(
-		['Guid' => $_REQUEST['TopicId']]
+		['_id' => $_REQUEST['TopicId']]
 	  , ['$set' => [
 			'For' => $UpdatedForVoterIds
 		  , 'Against' => $UpdatedAgainstVoterIds
