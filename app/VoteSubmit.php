@@ -9,7 +9,7 @@ if(
 	$AgainstVoterIds = $TopicCollection->findOne(['_id' => $_REQUEST['TopicId']])['Against']->bsonSerialize();
 	$UpdatedForVoterIds = array();
 	$UpdatedAgainstVoterIds = array();
-	if(in_array($_REQUEST['VoterId'], $VoterIds)
+	if(!in_array($_REQUEST['VoterId'], $VoterIds))
 		return;
 	foreach($ForVoterIds as $ForVoterId)
 		if($ForVoterId != $_REQUEST['VoterId'])
